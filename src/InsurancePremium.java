@@ -1,23 +1,32 @@
-// -------INSTRUCTIONS-------
-// 1. Complete the exercise as indicated on the handout for assignment #5
-// 2. Then delete these comments
-// 3. Finally, commit and push the project containing this file to GitHub
-
-// -------RUBRIC-------
-// Functionality								/6
-// Methods adhere to program requirements	/5
-// Value returned from calculatePremium()	/3
-// Coding conventions & comments				/6
-
+import java.util.Scanner;
 
 public class InsurancePremium {
 
 	public static void main(String[] args) {
-		//Insert body of main() method here
+		
+		//Declare variables and scanner 
+		int currentYr, birthYr, prem;
+		Scanner sc = new Scanner(System.in);
+		
+		//Display input
+		System.out.print("Please enter the current year: ");
+		currentYr = sc.nextInt();
+		System.out.print("Please enter your birth year: ");
+		birthYr = sc.nextInt();
+		prem= calculatePremium(currentYr, birthYr);
+		
+		//Display Output
+		System.out.print("Your premium would be " + prem);
+		
+		
 	}
 	
-	public static int calculatePremium(/*Insert parameters here*/) {
-		//Insert body of calculatePremium() method here
+	//Premium Calculation 
+	public static int calculatePremium(int cy, int by) {
+		int age = cy - by;
+		int dec = age / 10;
+		int premium = (dec + 15) * 20;
+		return premium; 
 	}
 
 }
